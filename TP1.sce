@@ -1,6 +1,4 @@
-exec('matmat1b.sci');
-exec('matmat2b.sci');
-exec('matmat3b.sci');
+exec('matmat.sci');
 
 function exo2(N)
   format("e", 16);
