@@ -17,15 +17,27 @@ function exo2(N)
   disp(cond(A) * Brelres);
 endfunction
 
+function test_exo3()
+  mat_A = testmatrix('magi', 100);
+  mat_B = testmatrix('magi', 100);
+
+  tic()
+  mat_A * mat_B;
+  disp("Temoin = ",toc());
+  tic();
+  matmat1b(mat_A, mat_B);
+  disp("Test1 = ", toc());
+  tic();
+  matmat2b(mat_A, mat_B);
+  disp("Test2 = ", toc());
+  tic();
+  matmat3b(mat_A, mat_B);
+  disp("Test3 = ", toc());
+endfunction
+
 //exo2(3);
 //exo2(100);
 //exo2(1000);
 //exo2(10000);
 
-mat_A = [2 1 1; 1 2 1 ; 1 1 2];
-mat_B = [3 3 3; 1 1 1 ; 2 2 2];
-
-disp("Temoin =",mat_A * mat_B);
-disp(matmat1b(mat_A, mat_B));
-disp(matmat2b(mat_A, mat_B));
-disp(matmat3b(mat_A, mat_B));
+test_exo3();
