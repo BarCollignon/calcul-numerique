@@ -1,5 +1,4 @@
 exec("exo2.sci");
-exec('matmat.sci');
 exec("exo3.sci");
 
 //exo2(3);

@@ -7,7 +7,7 @@ function temps = test_exo3(n)
   moy1 = 0;
   moy2 = 0;
   moy3 = 0;
-  for i = 1 : 1000
+  for i = 1 : 10
     tic();
     mat_A * mat_B;
     Tmoyen = Tmoyen + toc();
@@ -21,15 +21,15 @@ function temps = test_exo3(n)
     matmat3b(mat_A, mat_B);
     moy3 = moy3 + toc();
   end
-  Tmoyen = Tmoyen / 1000;
-  moy1 = moy1 / 1000;
-  moy2 = moy2 / 1000;
-  moy3 = moy3 / 1000;
+  Tmoyen = Tmoyen / 10;
+  moy1 = moy1 / 10;
+  moy2 = moy2 / 10;
+  moy3 = moy3 / 10;
   temps = [Tmoyen, moy1, moy2, moy3];
 endfunction
 
 function analyse_exo3()
-  moy = zeros(4,9);
+  moy = zeros(4,5);
   // moy = [Temoin; moy1 ; moy2; moy3]
   test = test_exo3(10);
   moy(1,1) = test(1);
@@ -37,12 +37,18 @@ function analyse_exo3()
   moy(3,1) = test(3);
   moy(4,1) = test(4);
   index_moy = 2;
-  for i = 50 : 400
+  for i = 20:10:50
     test = test_exo3(i);
     moy(1,index_moy) = test(1);
     moy(2,index_moy) = test(2);
     moy(3,index_moy) = test(3);
     moy(4,index_moy) = test(4);
+    index_moy = index_moy +1;
   end
-  plot([10,100,150,200,250,300,350,400],[moy(1) moy(2) moy(3) moy(4)]);
+  disp(moy);
+  disp(moy(1,:));
+  plot([10, 20, 30, 40, 50], moy(1,:),'mag');
+  plot([10, 20, 30, 40, 50], moy(2,:),'b');
+  plot([10, 20, 30, 40, 50], moy(3,:),'g');
+  plot([10, 20, 30, 40, 50], moy(4,:),'cya');
 endfunction
