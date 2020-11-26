@@ -1,6 +1,7 @@
 exec("exo2.sci");
 exec("exo3.sci");
 exec("exo4.sci");
+exec("exo5.sci");
 
 //exo2(3);
 //exo2(100);
@@ -9,4 +10,6 @@ exec("exo4.sci");
 
 //analyse_exo3();
 
-analyse_exo4();
+//analyse_exo4();
+
+analyse_exo5();
