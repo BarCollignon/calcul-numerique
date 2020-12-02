@@ -5,7 +5,7 @@ function values = exo5(n)
   A = rand(n,n);
   b = rand(n,1);
   x = A\b;
-  xex = gauss3b(A,b,n);
+  xex = gauss1b(A,b,n);
   values(1) = norm(x-xex)/norm(x);
   values(2) = norm(b - (A*xex)) / (norm(A)*norm(xex));
 endfunction;
