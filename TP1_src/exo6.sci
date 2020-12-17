@@ -1,4 +1,4 @@
-exec("factorisation.sci");
+exec("TP1_src/factorisation.sci");
 
 function [Error3b, Error1b, T3, T1] = test_exo6(n)
   format("e", 16);

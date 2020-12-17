@@ -1,4 +1,4 @@
-exec('matmat.sci');
+exec('TP1_src/matmat.sci');
 
 function temps = test_exo3(n)
   mat_A = rand(n, n);

@@ -1,4 +1,4 @@
-exec('gausskij3b.sci');
+exec('TP1_src/gausskij3b.sci');
 
 function values = exo5(n)
   values = [];

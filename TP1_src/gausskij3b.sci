@@ -1,4 +1,4 @@
-exec('solve.sci');
+exec('TP1_src/solve.sci');
 
 function x = gauss3b(A, b, n)
   for k= 1:n-1

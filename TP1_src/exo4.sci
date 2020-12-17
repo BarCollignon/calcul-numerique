@@ -1,4 +1,4 @@
-exec('solve.sci');
+exec('TP1_src/solve.sci');
 
 function exo4(N)
   format("e", 16);
