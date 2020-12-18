@@ -20,6 +20,15 @@ function [time, iter, tab_res] = analyse_Jacobi(A, b, n)
   iter = i;
 endfunction;
 
+function [time, iter, tab_res] = analyse_Jacobi_donne(A, b)
+  tolerance = 10^(-10);
+  max_iter = 10000;
+  tic();
+  [x, tab_res, iter] = Jacobi_donne(A, b, tolerance, max_iter);
+  time = toc();
+  disp("x = ", x);
+endfunction
+
 function [time, iter, tab_res] = analyse_Gauss(A, b, n)
   tolerance = 10^(-10);
   max_iter = 10000;
@@ -48,15 +57,19 @@ function analyse()
   b = rand(5,1);
 
   [tJ, iJ, errJ] = analyse_Jacobi(A, b, 5);
+  [tJd, iJd, errJd] = analyse_Jacobi_donne(A, b);
   [tG, iG, errG] = analyse_Gauss(A, b, 5);
   disp("Jacobi");
   disp(tJ, iJ);
+  disp("Jacobi donné");
+  disp(tJd, iJd);
   disp("Gauss")
   disp(tG, iG);
   //plot analyse random
 
   // partie poisson, n = 3
-  A = zeros(3,3)
+  A = zeros(3,3);
+  b = rand(3,1);
   for i = 1 : 3
     A(i,i) = 2;
   end;
@@ -64,11 +77,16 @@ function analyse()
   A(2,1) = -1;
   A(3,2) = -1;
   A(2,3) = -1;
-  disp(A);
 
-  disp("oui");
+  [tJd, iJd, errJd] = analyse_Jacobi_donne(A, b);
   [tJ, iJ] = analyse_Jacobi(A, b, 3);
   [tG, iG] = analyse_Gauss(A, b, 3);
-
+  disp("Partie Poisson");
+  disp("Jacobi");
+  disp(tJ, iJ);
+  disp("Jacobi donné");
+  disp(tJd, iJd);
+  disp("Gauss")
+  disp(tG, iG);
   //plot analyse Poisson
 endfunction;
