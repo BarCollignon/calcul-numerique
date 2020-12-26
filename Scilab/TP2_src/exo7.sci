@@ -16,9 +16,8 @@ function analyse_7()
   end;
   tab_iter = 1:1:maxit;
   for alpha = 0.1 : 0.1 : 0.9
-    color = 255 * alpha;
     [x, relres, resvec, it] = richardson_Poisson(A, b, tol, maxit, x0, alpha);
     disp(it);
-    //plot(tab_iter, resvec, rgb2name(color,color,color));
+    //plot(tab_iter, resvec, rgb2name(alpha,alpha,alpha));
   end;
 endfunction;
